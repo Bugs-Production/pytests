@@ -1,9 +1,23 @@
 from pydantic import BaseModel, field_validator
-from src.enums.user_enums import Gender, Status
+from enum import Enum
+
+
+class FactsCat(BaseModel):
+    fact: str
+    length: int
+
+
+class Gender(Enum):
+    female = "female"
+    male = "male"
+
+
+class Status(Enum):
+    active = "active"
+    inactive = "inactive"
 
 
 class User(BaseModel):
-    """Валидация данных юзеров"""
     id: int
     name: str
     email: str
